@@ -1,0 +1,31 @@
+{
+  "name": "ppo",
+  "version": "0.0.0",
+  "description": "Pages, Components and Subcomponents for your protractor E2E tests.",
+  "main": "lib/ppo.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Droogans/ppo.git"
+  },
+  "keywords": [
+    "protractor",
+    "angular",
+    "page",
+    "objects",
+    "selenium",
+    "node",
+    "end to end",
+    "e2e",
+    "testing",
+    "automation",
+    "pages"
+  ],
+  "author": "Andrew Yurisich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Droogans/ppo/issues"
+  }
+}
