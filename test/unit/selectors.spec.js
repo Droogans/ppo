@@ -1,4 +1,3 @@
-var selectors = require('../../lib/ppo/selectors');
 var by = require('protractor').By;
 var _ = require('lodash');
 
