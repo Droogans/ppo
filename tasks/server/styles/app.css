@@ -1,0 +1,15 @@
+#header {
+  background-color: #000FF0;
+  padding: 0px;
+  border: 0px;
+  height: 80px;
+}
+
+#ngApp {
+  padding: 5px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}

@@ -4,7 +4,8 @@
   "description": "Pages, Components and Subcomponents for your protractor E2E tests.",
   "main": "lib/ppo.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "gulp test",
+    "server: "gulp server"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,18 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Droogans/ppo/issues"
+  },
+  "devDependencies": {
+    "sinon-chai": "~2.5.0",
+    "chai": "~1.9.1",
+    "sinon": "~1.10.3",
+    "mocha": "~1.21.4",
+    "express": "^4.8.5",
+    "gulp-express": "0.0.9",
+    "gulp": "^3.8.7"
+  },
+  "dependencies": {
+    "protractor": "~1.0.0",
+    "lodash": "~2.4.1"
   }
 }
