@@ -332,6 +332,8 @@ describe('selectors', function () {
         'all by tagName "span"',
         'all <span>',
         'all <img>'
+        'all <span>',
+        'all <li>'
       ]
     },
 
@@ -342,11 +344,6 @@ describe('selectors', function () {
         '/div'
       ],
       all: [
-        'all by xpath "span"',
-        '//span',
-        '//div',
-        'all //span',
-        'all //div',
         'all /span',
         'all /div'
       ]
