@@ -354,9 +354,24 @@ describe('selectors', function () {
     }
   };
 
+  var selectors = _.merge(protractorSelectors, seleniumSelectors);
+
   it('should have every selector available in protractor listed', function () {
-    var selectors = _.keys(protractorSelectors).concat(_.keys(seleniumSelectors));
-    expect(_.difference(_.functions(by), selectors.sort())).to.eql(['addLocator']);
+    expect(_.difference(_.functions(by), _.keys(selectors).sort())).to.eql(['addLocator']);
+  });
+
+  var hasBy = /^by\s.*/;
+  var hasAllBy = /^all by\s.*/;
+  _.forEach(selectors, function (shortcuts, selectorName) {
+
+    it('should have a "by" singular ElementFinder shortcut for ' + selectorName, function () {
+      expect(_.some(shortcuts.first, function (shortcut) { return hasBy.test(shortcut); })).to.be.true;
+    });
+
+    it('should have an "all by" ElementArrayFinder shortcut for ' + selectorName, function () {
+      expect(_.some(shortcuts.all, function (shortcut) { return hasAllBy.test(shortcut); })).to.be.true;
+    });
+
   });
 
 });
