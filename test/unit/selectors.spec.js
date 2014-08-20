@@ -25,14 +25,14 @@ describe('selectors', function () {
         'all by binding "binding.data"',
         'all by binding "binding.fn()"',
         'all by binding "binding.fn(input)"',
-        '{{{{ binding.data }}}}',
-        '{{{{ binding.fn() }}}}',
-        '{{{{ binding.fn(input) }}}}',
-        '{{{{ typeof binding.data }}}}',
-        '{{{{binding.data}}}}',
-        '{{{{binding.fn()}}}}',
-        '{{{{binding.fn(input)}}}}',
-        '{{{{typeof binding.data}}}}'
+        'all {{ binding.data }}',
+        'all {{ binding.fn() }}',
+        'all {{ binding.fn(input) }}',
+        'all {{ typeof binding.data }}',
+        'all {{binding.data}}',
+        'all {{binding.fn()}}',
+        'all {{binding.fn(input)}}',
+        'all {{typeof binding.data}}'
       ]
     },
 
@@ -75,20 +75,20 @@ describe('selectors', function () {
         'all by {{"binding.fn()"}}',
         'all by {{"binding.fn(input)"}}',
         'all by {{"binding.fn(input)"}}',
-        '{{{{ "binding.data | filter" }}}}',
-        '{{{{ "binding.data | filter:this" }}}}',
-        '{{{{ "binding.data" }}}}',
-        '{{{{ "binding.data|filter" }}}}',
-        '{{{{ "binding.fn()" }}}}',
-        '{{{{ "binding.fn(input)" }}}}',
-        '{{{{ "typeof binding.data" }}}}',
-        '{{{{"binding.data | filter"}}}}',
-        '{{{{"binding.data | filter:this"}}}}',
-        '{{{{"binding.data"}}}}',
-        '{{{{"binding.data|filter"}}}}',
-        '{{{{"binding.fn()"}}}}',
-        '{{{{"binding.fn(input)"}}}}',
-        '{{{{"typeof binding.data"}}}}'
+        'all {{ "binding.data | filter" }}',
+        'all {{ "binding.data | filter:this" }}',
+        'all {{ "binding.data" }}',
+        'all {{ "binding.data|filter" }}',
+        'all {{ "binding.fn()" }}',
+        'all {{ "binding.fn(input)" }}',
+        'all {{ "typeof binding.data" }}',
+        'all {{"binding.data | filter"}}',
+        'all {{"binding.data | filter:this"}}',
+        'all {{"binding.data"}}',
+        'all {{"binding.data|filter"}}',
+        'all {{"binding.fn()"}}',
+        'all {{"binding.fn(input)"}}',
+        'all {{"typeof binding.data"}}'
       ]
     },
 
@@ -97,13 +97,21 @@ describe('selectors', function () {
         'by model "typeof binding.data"',
         'by model "binding.data"',
         'by model "binding.fn()"',
-        'by model "binding.fn(input)"'
+        'by model "binding.fn(input)"',
+        'model="typeof binding.data"',
+        'model="binding.data"',
+        'model="binding.fn()"',
+        'model="binding.fn(input)"'
       ],
       all: [
-        'all by model "typeof binding.data"',
         'all by model "binding.data"',
         'all by model "binding.fn()"',
-        'all by model "binding.fn(input)"'
+        'all by model "binding.fn(input)"',
+        'all by model "typeof binding.data"',
+        'all model="binding.data"',
+        'all model="binding.fn()"',
+        'all model="binding.fn(input)"',
+        'all model="typeof binding.data"'
       ]
     },
 
@@ -111,10 +119,14 @@ describe('selectors', function () {
       first: [
         'by buttonText "Save for Later"',
         'by buttonText "Submit"',
+        'button="Save for Later"',
+        'button="Submit"'
       ],
       all: [
         'all by buttonText "Save for Later"',
         'all by buttonText "Submit"',
+        'all button="Save for Later"',
+        'all button="Submit"'
       ]
     },
 
@@ -122,10 +134,14 @@ describe('selectors', function () {
       first: [
         'by partialButtonText "Save for "',
         'by partialButtonText "Sub"',
+        'button*="Save for "',
+        'button*="Sub"'
       ],
       all: [
         'all by partialButtonText "Save for "',
         'all by partialButtonText "Sub"',
+        'all button*="Save for "',
+        'all button*="Sub"'
       ]
     },
 
@@ -165,6 +181,14 @@ describe('selectors', function () {
         '$$(.title) "Submit"',
         '$$(div[labelFor="Title"]) "Has Text"',
         '$$(div[labelFor="Title"]) "Submit"',
+        'all $$(.title) "Has Text"',
+        'all $$(.title) "Submit"',
+        'all $$(div[labelFor="Title"]) "Has Text"',
+        'all $$(div[labelFor="Title"]) "Submit"',
+        'all $(.title) "Has Text"',
+        'all $(.title) "Submit"',
+        'all $(div[labelFor="Title"]) "Has Text"',
+        'all $(div[labelFor="Title"]) "Submit"',
         'all by cssContainingText "div[labelFor="Title"]" "Has Text"',
         'all by cssContainingText "div[labelFor="Title"]" "Submit"'
       ]
@@ -202,8 +226,8 @@ describe('selectors', function () {
         'by className "class-name other classes"'
       ],
       all: [
-        '..class-name',
-        '..className',
+        'all .class-name',
+        'all .className',
         'all by className "class-name"',
         'all by className "class-name other classes"'
       ]
@@ -220,7 +244,11 @@ describe('selectors', function () {
         '$$(.title)',
         '$$(div[labelFor="Title"])',
         'all by css ".title"',
-        'all by css "div[labelFor="Title"]"'
+        'all by css "div[labelFor="Title"]"',
+        'all $$(.title)',
+        'all $$(div[labelFor="Title"])',
+        'all $(.title)',
+        'all $(div[labelFor="Title"])'
       ]
     },
 
@@ -231,28 +259,34 @@ describe('selectors', function () {
         'by id "id"'
       ],
       all: [
-        '##id-name',
-        '##idName',
+        'all #id-name',
+        'all #idName',
         'all by id "id"'
       ]
     },
 
     js: {
       first: [
-        'by js "2 + 2"',
-        'by js "2 + "2""',
-        'by js "function (input) { return input.indexOf("string"); })"',
-        '`2 + 2`',
         '`2 + "2"`',
+        '`2 + 2`',
         '`function (input) { return input.indexOf("string"); }`',
+        'by js "2 + "2""',
+        'by js "2 + 2"',
+        'by js "function (input) { return input.indexOf("string"); })"'
       ],
       all: [
-        'all by js "2 + 2"',
-        'all by js "2 + "2""',
-        'all by js "function (input) { return input.indexOf("string"); })"',
-        '```2 + 2```',
         '```2 + "2"```',
+        '```2 + 2```',
         '```function (input) { return input.indexOf("string"); }```',
+        'all `2 + "2"```',
+        'all `2 + 2```',
+        'all ```2 + "2"```',
+        'all ```2 + 2```',
+        'all ```function (input) { return input.indexOf("string"); }```',
+        'all `function (input) { return input.indexOf("string"); }```',
+        'all by js "2 + "2""',
+        'all by js "2 + 2"',
+        'all by js "function (input) { return input.indexOf("string"); })"',
       ]
     },
 
@@ -263,7 +297,7 @@ describe('selectors', function () {
       ],
       all: [
         'all by link text "Submit"',
-        'hrefs="Submit"'
+        'all href="Submit"'
       ]
     },
 
@@ -274,38 +308,48 @@ describe('selectors', function () {
       ],
       all: [
         'all by link text "Submit"',
-        'hrefs*="Submit"'
+        'all href*="Submit"'
       ]
     },
 
     name: {
       first: [
+        'by name "Submit"',
         'name="Submit"'
       ],
       all: [
-        'names="Submit"'
+        'all by name "Submit"',
+        'all name="Submit"'
       ]
     },
 
     tagName: {
       first: [
+        'by tagName "span"',
         '<span>',
-        '<li>'
+        '<img>'
       ],
       all: [
-        '<<span>>',
-        '<<li>>'
+        'all by tagName "span"',
+        'all <span>',
+        'all <img>'
       ]
     },
 
     xpath: {
       first: [
+        'by xpath "span"',
         '/span',
         '/div'
       ],
       all: [
+        'all by xpath "span"',
         '//span',
-        '//div'
+        '//div',
+        'all //span',
+        'all //div',
+        'all /span',
+        'all /div'
       ]
     }
   };
